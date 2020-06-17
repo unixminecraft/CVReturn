@@ -1,0 +1,27 @@
+name: CVReturn
+main: org.cubeville.cvreturn.bukkit.CVReturn
+version: 1.0.0
+author: mciolkosz
+api-version: 1.15
+
+commands:
+  return:
+    description: Return to a previous location that you teleported from.
+    aliases: ret
+    permission: cvreturn.return
+    permission-message: "§cNo permission."
+    usage: "§cSyntax: /return [count]"
+
+permissions:
+  cvreturn.return:
+    description: Ability to use the /return command
+    default: op
+  cvreturn.return.other:
+    description: Ability to return other players
+    default: op
+  cvreturn.extended:
+    description: Ability to have 15 return points instead of 10
+    default: op
+  cvreturn.ultimate:
+    description: Ability to have 30 return points instead of 10 or 15
+    default: op
