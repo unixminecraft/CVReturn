@@ -360,6 +360,15 @@ public final class CVReturn extends JavaPlugin implements Listener {
 			return;
 		}
 		
+		// Check if the player is being teleported to the same spot repeatedly.
+		// Ignore these as they may be caused by several things, including:
+		// - Player teleporting to same static spot because <reasons>.
+		// - 1.13+ servers laggy chunk loading, causing the server to TP the
+		//   player to prevent them from falling forever.
+		if (!locations.isEmpty() && locations.get(0).equals(from)) {
+			return;
+		}
+		
 		// Add the new location. Find the maximum amount the player is allowed
 		// to go back, and remove the oldest ones.
 		locations.add(0, from);
