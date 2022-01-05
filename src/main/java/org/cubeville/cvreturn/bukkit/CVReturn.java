@@ -1,7 +1,7 @@
 /*
  * CVReturn Bukkit plugin for Minecraft
- * Copyright (C) 2020-2021 Matt Ciolkosz (https://github.com/mciolkosz)
- * Copyright (C) 2020-2021 Cubeville (https://www.cubeville.org/)
+ * Copyright (C) 2020-2022 Matt Ciolkosz (https://github.com/mciolkosz)
+ * Copyright (C) 2020-2022 Cubeville (https://www.cubeville.org/)
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
