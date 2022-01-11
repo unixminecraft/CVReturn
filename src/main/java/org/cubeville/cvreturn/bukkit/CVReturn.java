@@ -345,6 +345,10 @@ public final class CVReturn extends JavaPlugin implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerTeleport(final PlayerTeleportEvent event) {
 		
+		// Try to cut down on automatic lag-backs.
+		final Location from = event.getFrom();
+		if (from.equals(event.getTo())) { return; }
+		
 		final Player player = event.getPlayer();
 		final UUID uniqueId = player.getUniqueId();
 		List<Location> locations = this.allLocations.get(uniqueId);
@@ -353,7 +357,6 @@ public final class CVReturn extends JavaPlugin implements Listener {
 		// If the from location is ignored (as probably just set in the code
 		// in the method above), remove it, and do not track it as a
 		// "previous location".
-		final Location from = event.getFrom();
 		final Location ignored = this.ignoredLocations.get(uniqueId);
 		if (from.equals(ignored)) {
 			this.ignoredLocations.remove(uniqueId);
