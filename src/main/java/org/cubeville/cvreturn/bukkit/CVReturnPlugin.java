@@ -1,7 +1,7 @@
 /* 
  * CVReturn Bukkit plugin for Minecraft
- * Copyright (C) 2020-2023 Matt Ciolkosz (https://github.com/mciolkosz)
- * Copyright (C) 2020-2023 Cubeville (https://www.cubeville.org/)
+ * Copyright (C) 2020-2024 Matt Ciolkosz (https://github.com/mciolkosz)
+ * Copyright (C) 2020-2024 Cubeville (https://www.cubeville.org/)
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,14 +51,16 @@ public final class CVReturnPlugin extends JavaPlugin implements Listener {
     
     private static final String PERMISSION_MESSAGE = "§cYou do not have permission to execute this command.";
     
-    private Map<UUID, List<Location>> allLocations;
-    private Map<UUID, Location> ignoredLocations;
+    private final Map<UUID, List<Location>> allLocations;
+    private final Map<UUID, Location> ignoredLocations;
+    
+    public CVReturnPlugin() {
+        this.allLocations = new ConcurrentHashMap<UUID, List<Location>>();
+        this.ignoredLocations = new ConcurrentHashMap<UUID, Location>();
+    }
     
     @Override
     public void onEnable() {
-        
-        this.allLocations = new ConcurrentHashMap<UUID, List<Location>>();
-        this.ignoredLocations = new ConcurrentHashMap<UUID, Location>();
         this.getServer().getPluginManager().registerEvents(this, this);
     }
     
